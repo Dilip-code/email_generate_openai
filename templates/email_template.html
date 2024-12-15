@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intent Extraction|OpenAI model</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Intent Extraction and Email Generation using OpenAI model</h1>
+
+        <form action="/analyze-urls/" method="POST">
+            <label for="message">Message:</label>
+            <textarea name="message" required>{{ message }}</textarea>
+
+            <label for="pages_visited">Pages Visited (comma-separated URLs):</label>
+            <textarea name="pages_visited" required>{{ pages_visited }}</textarea>
+
+            <button type="submit">Generate Email</button>
+        </form>
+
+        {% if email_content %}
+        <div class="email-output">
+            <h2>Generated Email:</h2>
+            <pre>{{ email_content }}</pre>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
